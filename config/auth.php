@@ -114,4 +114,15 @@ return [
 
     'password_timeout' => env('AUTH_PASSWORD_TIMEOUT', 10800),
 
+    /*
+    |--------------------------------------------------------------------------
+    | Basic Authentication (Prototype)
+    |--------------------------------------------------------------------------
+    | .env に BASIC_AUTH_USER と BASIC_AUTH_PASSWORD を設定すると
+    | 全画面にBasic認証がかかります。未設定の場合は認証なし。
+    */
+
+    'basic_user' => env('BASIC_AUTH_USER'),
+    'basic_password' => env('BASIC_AUTH_PASSWORD'),
+
 ];
