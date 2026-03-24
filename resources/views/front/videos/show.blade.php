@@ -32,7 +32,10 @@
                     <span class="level-badge level-beginner">初級</span>
                     <span style="font-size:12px;color:#888;">基礎技術 / コテの巻き方</span>
                 </div>
-                <button class="btn btn-secondary btn-sm">&#9825; お気に入り</button>
+                <div style="display:flex;gap:6px;">
+                    <button class="btn btn-secondary btn-sm" onclick="openPlaylistAddModal('フォワード巻きの基本')">&#128193; プレイリスト</button>
+                    <button class="btn btn-secondary btn-sm">&#9825; お気に入り</button>
+                </div>
             </div>
             <h1 style="font-size:22px;font-weight:700;margin-bottom:8px;">フォワード巻きの基本</h1>
             <p style="color:#6B5D52;font-size:14px;line-height:1.8;">
@@ -195,7 +198,43 @@
 
 <style>@media (max-width:768px) { .course-sidebar { display:none; } }</style>
 
+{{-- ========================================== --}}
+{{-- モーダル: プレイリストに追加 --}}
+{{-- ========================================== --}}
+<div class="modal-overlay" id="playlistAddModal" style="display:none;" onclick="if(event.target===this)this.style.display='none'">
+    <div class="modal-content" style="max-width:420px;">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;">
+            <h3 style="margin:0;font-size:18px;font-weight:700;">&#128193; プレイリストに追加</h3>
+            <button onclick="document.getElementById('playlistAddModal').style.display='none'" style="background:none;border:none;font-size:20px;cursor:pointer;color:#888;">&times;</button>
+        </div>
+        <div style="margin-bottom:12px;padding:10px 12px;background:#F5F0E6;border-radius:8px;">
+            <div style="font-size:12px;color:#888;">追加する動画:</div>
+            <div style="font-size:14px;font-weight:600;" id="playlistAddVideoTitle">-</div>
+        </div>
+        <div style="font-size:13px;font-weight:600;margin-bottom:8px;">追加先を選択:</div>
+        <div style="display:flex;flex-direction:column;gap:8px;margin-bottom:16px;">
+            @foreach (['よく使うヘアセット (5本)','来月の練習用 (3本)','ブライダル系まとめ (8本)'] as $pl)
+            <label style="display:flex;align-items:center;gap:10px;padding:10px 12px;background:#FFFDF9;border:2px solid #E8DDD0;border-radius:8px;cursor:pointer;transition:border-color .2s;" onmouseover="this.style.borderColor='#D8A39D'" onmouseout="this.style.borderColor='#E8DDD0'">
+                <input type="checkbox" style="width:18px;height:18px;accent-color:#D8A39D;">
+                <span style="font-size:14px;">&#128193; {{ $pl }}</span>
+            </label>
+            @endforeach
+        </div>
+        <div style="border-top:1px solid #E8DDD0;padding-top:12px;margin-bottom:16px;">
+            <button class="btn btn-secondary btn-sm" style="width:100%;">&#10010; 新しいプレイリストを作成して追加</button>
+        </div>
+        <div style="display:flex;gap:8px;justify-content:flex-end;">
+            <button class="btn btn-secondary" onclick="document.getElementById('playlistAddModal').style.display='none'">キャンセル</button>
+            <button class="btn btn-primary" onclick="document.getElementById('playlistAddModal').style.display='none';alert('プレイリストに追加しました（デモ）')">追加する</button>
+        </div>
+    </div>
+</div>
+
 <script>
+function openPlaylistAddModal(title) {
+    document.getElementById('playlistAddVideoTitle').textContent = title;
+    document.getElementById('playlistAddModal').style.display = 'flex';
+}
 function switchView(type) {
     document.getElementById('view-free').style.display = type === 'free' ? 'block' : 'none';
     document.getElementById('view-locked').style.display = type === 'locked' ? 'block' : 'none';

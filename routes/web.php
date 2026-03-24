@@ -89,6 +89,9 @@ Route::get('/influencer/{id}', fn($id) => view('front.influencer', compact('id')
 // F-26: インフルエンサーコース購入確認
 Route::get('/influencer-course/{id}/purchase', fn($id) => view('front.influencer-purchase', compact('id')))->name('front.influencer.purchase');
 
+// F-28: プレイリスト詳細
+Route::get('/playlists/{id}', fn($id) => view('front.playlists.show', compact('id')))->name('front.playlist.show');
+
 // F-24: スタイル一覧（完成写真から学ぶ）
 Route::get('/styles', fn() => view('front.styles.index'))->name('front.styles.index');
 
