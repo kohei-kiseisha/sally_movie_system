@@ -19,9 +19,10 @@
         .screen-id { background: #3D3229; color: #fff; padding: 4px 10px; border-radius: 6px; font-size: 12px; font-weight: 700; white-space: nowrap; }
         .screen-id.shop { background: #5C4F44; }
         .screen-id.admin { background: #533483; }
+        .screen-id.inf { background: #D8A39D; }
         .screen-name { font-size: 14px; font-weight: 600; }
         .screen-desc { font-size: 11px; color: #888; }
-        .legend { display: flex; gap: 16px; justify-content: center; margin-bottom: 32px; font-size: 13px; }
+        .legend { display: flex; gap: 16px; justify-content: center; margin-bottom: 32px; font-size: 13px; flex-wrap: wrap; }
         .legend span { display: flex; align-items: center; gap: 6px; }
         .legend .dot { width: 12px; height: 12px; border-radius: 3px; }
     </style>
@@ -37,18 +38,21 @@
         </div>
 
         <div class="legend">
-            <span><div class="dot" style="background:#3D3229;"></div> フロント画面（ユーザー向け）</span>
+            <span><div class="dot" style="background:#3D3229;"></div> フロント画面</span>
             <span><div class="dot" style="background:#5C4F44;"></div> 店舗管理画面</span>
             <span><div class="dot" style="background:#533483;"></div> 運営管理画面</span>
+            <span><div class="dot" style="background:#D8A39D;"></div> インフルエンサー管理画面</span>
         </div>
 
+        {{-- ======================================= --}}
         {{-- フロント画面 --}}
+        {{-- ======================================= --}}
         <div class="screen-group">
             <h2>&#127968; フロント画面（一般ユーザー / 店舗所属ユーザー）</h2>
             <div class="screen-grid">
                 <a href="{{ route('front.top') }}" class="screen-link">
                     <span class="screen-id">F-01</span>
-                    <div><div class="screen-name">トップページ</div><div class="screen-desc">サービス紹介・新着動画・おすすめコース</div></div>
+                    <div><div class="screen-name">トップページ</div><div class="screen-desc">サービス紹介・新着動画・スタイルギャラリー・おすすめコース</div></div>
                 </a>
                 <a href="{{ route('front.login') }}" class="screen-link">
                     <span class="screen-id">F-02</span>
@@ -64,43 +68,43 @@
                 </a>
                 <a href="{{ route('front.videos.index') }}" class="screen-link">
                     <span class="screen-id">F-05</span>
-                    <div><div class="screen-name">動画一覧</div><div class="screen-desc">全動画の検索・フィルタ・一覧表示</div></div>
+                    <div><div class="screen-name">動画一覧</div><div class="screen-desc">無料/有料区分付き・フィルタ・検索</div></div>
                 </a>
                 <a href="{{ route('front.categories.index') }}" class="screen-link">
                     <span class="screen-id">F-06</span>
-                    <div><div class="screen-name">カテゴリー一覧</div><div class="screen-desc">ヘアアレンジ等のカテゴリー</div></div>
+                    <div><div class="screen-name">カテゴリー一覧</div><div class="screen-desc">ヘアメイクとは/道具/基礎技術/ヘアスタイル基礎</div></div>
                 </a>
                 <a href="{{ route('front.categories.show', 1) }}" class="screen-link">
                     <span class="screen-id">F-07</span>
-                    <div><div class="screen-name">カテゴリー詳細</div><div class="screen-desc">特定カテゴリー内のコース・動画一覧</div></div>
+                    <div><div class="screen-name">カテゴリー詳細</div><div class="screen-desc">カテゴリー内のコース・動画一覧</div></div>
                 </a>
                 <a href="{{ route('front.courses.index') }}" class="screen-link">
                     <span class="screen-id">F-08</span>
-                    <div><div class="screen-name">コース一覧</div><div class="screen-desc">全コースのレベル別・カテゴリー別一覧</div></div>
+                    <div><div class="screen-name">コース一覧</div><div class="screen-desc">レベル別タブ・カテゴリーフィルタ付き</div></div>
                 </a>
                 <a href="{{ route('front.courses.show', 1) }}" class="screen-link">
                     <span class="screen-id">F-09</span>
-                    <div><div class="screen-name">コース詳細</div><div class="screen-desc">コース概要・動画リスト・進捗率</div></div>
+                    <div><div class="screen-name">コース詳細</div><div class="screen-desc">チャプター一覧・無料/有料ロック・講師情報</div></div>
                 </a>
                 <a href="{{ route('front.videos.show', 1) }}" class="screen-link">
                     <span class="screen-id">F-10</span>
-                    <div><div class="screen-name">動画視聴画面</div><div class="screen-desc">Vimeoプレーヤー・関連動画</div></div>
+                    <div><div class="screen-name">動画視聴画面</div><div class="screen-desc">プレーヤー・ロック状態切替デモ・課金モーダル</div></div>
                 </a>
                 <a href="{{ route('front.progress') }}" class="screen-link">
                     <span class="screen-id">F-11</span>
-                    <div><div class="screen-name">学習進捗画面</div><div class="screen-desc">全体進捗率・コース別進捗・修了バッジ</div></div>
+                    <div><div class="screen-name">学習進捗画面</div><div class="screen-desc">全体進捗率・コース別進捗・修了バッジ・学習時間</div></div>
                 </a>
                 <a href="{{ route('front.favorites') }}" class="screen-link">
                     <span class="screen-id">F-12</span>
-                    <div><div class="screen-name">お気に入り一覧</div><div class="screen-desc">お気に入り動画・コースへのアクセス</div></div>
+                    <div><div class="screen-name">お気に入り一覧</div><div class="screen-desc">動画/コースのタブ切り替え</div></div>
                 </a>
                 <a href="{{ route('front.history') }}" class="screen-link">
                     <span class="screen-id">F-13</span>
-                    <div><div class="screen-name">視聴履歴</div><div class="screen-desc">過去の視聴動画の履歴</div></div>
+                    <div><div class="screen-name">視聴履歴</div><div class="screen-desc">日付別の視聴履歴・再開位置</div></div>
                 </a>
                 <a href="{{ route('front.events.index') }}" class="screen-link">
                     <span class="screen-id">F-14</span>
-                    <div><div class="screen-name">イベント一覧</div><div class="screen-desc">募集中のオフラインイベント</div></div>
+                    <div><div class="screen-name">イベント一覧</div><div class="screen-desc">オフラインイベント一覧・残席表示</div></div>
                 </a>
                 <a href="{{ route('front.events.show', 1) }}" class="screen-link">
                     <span class="screen-id">F-15</span>
@@ -116,11 +120,11 @@
                 </a>
                 <a href="{{ route('front.search') }}" class="screen-link">
                     <span class="screen-id">F-18</span>
-                    <div><div class="screen-name">検索結果</div><div class="screen-desc">動画・コース・イベントの横断検索</div></div>
+                    <div><div class="screen-name">検索結果</div><div class="screen-desc">動画/コース/イベントのタブ切り替え検索</div></div>
                 </a>
                 <a href="{{ route('front.plan') }}" class="screen-link">
                     <span class="screen-id">F-19</span>
-                    <div><div class="screen-name">契約・プラン画面</div><div class="screen-desc">月額プラン確認・Stripe決済導線</div></div>
+                    <div><div class="screen-name">契約・プラン画面</div><div class="screen-desc">月額プラン確認・決済導線</div></div>
                 </a>
                 <a href="{{ route('front.settings') }}" class="screen-link">
                     <span class="screen-id">F-20</span>
@@ -136,12 +140,30 @@
                 </a>
                 <a href="{{ route('front.influencer.show', 1) }}" class="screen-link">
                     <span class="screen-id">F-23</span>
-                    <div><div class="screen-name">インフルエンサー特集ページ</div><div class="screen-desc">（将来）インフルエンサー別コース一覧</div></div>
+                    <div><div class="screen-name">インフルエンサー特集ページ</div><div class="screen-desc">プロフィール・有料コース（買い切り）・無料プレビュー</div></div>
+                </a>
+                <a href="{{ route('front.styles.index') }}" class="screen-link">
+                    <span class="screen-id">F-24</span>
+                    <div><div class="screen-name">スタイル一覧（完成写真から学ぶ）</div><div class="screen-desc">写真ギャラリー・髪の長さタブ・無料/有料区分</div></div>
+                </a>
+                <a href="{{ route('front.styles.show', 1) }}" class="screen-link">
+                    <span class="screen-id">F-25</span>
+                    <div><div class="screen-name">スタイル詳細</div><div class="screen-desc">完成写真＋Vimeo動画＋使用テクニック</div></div>
+                </a>
+                <a href="{{ route('front.influencer.purchase', 1) }}" class="screen-link">
+                    <span class="screen-id">F-26</span>
+                    <div><div class="screen-name">インフルエンサーコース購入</div><div class="screen-desc">買い切りコースの決済確認・完了</div></div>
+                </a>
+                <a href="{{ route('front.instructors.index') }}" class="screen-link">
+                    <span class="screen-id">F-27</span>
+                    <div><div class="screen-name">特別講師一覧</div><div class="screen-desc">インフルエンサー講師のカード一覧</div></div>
                 </a>
             </div>
         </div>
 
+        {{-- ======================================= --}}
         {{-- 店舗管理画面 --}}
+        {{-- ======================================= --}}
         <div class="screen-group">
             <h2>&#127970; 店舗管理画面</h2>
             <div class="screen-grid">
@@ -183,12 +205,14 @@
                 </a>
                 <a href="{{ route('shop.events') }}" class="screen-link">
                     <span class="screen-id shop">S-08</span>
-                    <div><div class="screen-name">イベント参加状況</div><div class="screen-desc">メンバーのイベント参加状況一覧</div></div>
+                    <div><div class="screen-name">イベント参加状況</div><div class="screen-desc">参加マトリクス・タブ切り替え</div></div>
                 </a>
             </div>
         </div>
 
+        {{-- ======================================= --}}
         {{-- 運営管理画面 --}}
+        {{-- ======================================= --}}
         <div class="screen-group">
             <h2>&#128736; 運営管理画面（SALLY141）</h2>
             <div class="screen-grid">
@@ -206,7 +230,7 @@
                 </a>
                 <a href="{{ route('admin.videos.create') }}" class="screen-link">
                     <span class="screen-id admin">A-03+</span>
-                    <div><div class="screen-name">動画登録画面</div><div class="screen-desc">Vimeo URL入力・メタ情報取得</div></div>
+                    <div><div class="screen-name">動画登録画面</div><div class="screen-desc">Vimeo URL入力・メタ情報設定</div></div>
                 </a>
                 <a href="{{ route('admin.courses.index') }}" class="screen-link">
                     <span class="screen-id admin">A-04</span>
@@ -226,26 +250,63 @@
                 </a>
                 <a href="{{ route('admin.subscriptions.index') }}" class="screen-link">
                     <span class="screen-id admin">A-07</span>
-                    <div><div class="screen-name">契約管理</div><div class="screen-desc">個人/店舗の契約状況一覧</div></div>
+                    <div><div class="screen-name">契約管理</div><div class="screen-desc">個人/店舗の契約状況・タブ切り替え</div></div>
                 </a>
                 <a href="{{ route('admin.users.index') }}" class="screen-link">
                     <span class="screen-id admin">A-08</span>
-                    <div><div class="screen-name">ユーザー管理</div><div class="screen-desc">全ユーザーの一覧・検索・詳細</div></div>
+                    <div><div class="screen-name">ユーザー管理</div><div class="screen-desc">一般ユーザーの一覧・学習進捗・紹介元</div></div>
                 </a>
                 <a href="{{ route('admin.organizations.index') }}" class="screen-link">
                     <span class="screen-id admin">A-09</span>
-                    <div><div class="screen-name">店舗管理</div><div class="screen-desc">店舗一覧・詳細・所属メンバー確認</div></div>
+                    <div><div class="screen-name">店舗管理</div><div class="screen-desc">店舗一覧・詳細・店舗管理者確認</div></div>
                 </a>
                 <a href="{{ route('admin.influencers.index') }}" class="screen-link">
                     <span class="screen-id admin">A-10</span>
-                    <div><div class="screen-name">インフルエンサー管理</div><div class="screen-desc">（将来）インフルエンサー登録・コース紐付け</div></div>
+                    <div><div class="screen-name">インフルエンサー管理</div><div class="screen-desc">一覧・報酬管理・報酬設定タブ</div></div>
+                </a>
+                <a href="{{ route('admin.influencers.create') }}" class="screen-link">
+                    <span class="screen-id admin">A-10b</span>
+                    <div><div class="screen-name">インフルエンサー追加</div><div class="screen-desc">基本情報・報酬条件・コース紐付け・登録</div></div>
+                </a>
+                <a href="{{ route('admin.admins.index') }}" class="screen-link">
+                    <span class="screen-id admin">A-11</span>
+                    <div><div class="screen-name">管理者管理</div><div class="screen-desc">運営スタッフ一覧・権限マトリクス</div></div>
+                </a>
+            </div>
+        </div>
+
+        {{-- ======================================= --}}
+        {{-- インフルエンサー管理画面 --}}
+        {{-- ======================================= --}}
+        <div class="screen-group">
+            <h2>&#11088; インフルエンサー管理画面</h2>
+            <div class="screen-grid">
+                <a href="{{ route('influencer.dashboard') }}" class="screen-link">
+                    <span class="screen-id inf">I-01</span>
+                    <div><div class="screen-name">ダッシュボード</div><div class="screen-desc">収益サマリー・クイックアクション・アクティビティ</div></div>
+                </a>
+                <a href="{{ route('influencer.courses') }}" class="screen-link">
+                    <span class="screen-id inf">I-02</span>
+                    <div><div class="screen-name">コース売上確認</div><div class="screen-desc">コース別売上・受講者数・報酬（閲覧のみ）</div></div>
+                </a>
+                <a href="{{ route('influencer.referrals') }}" class="screen-link">
+                    <span class="screen-id inf">I-03</span>
+                    <div><div class="screen-name">紹介URL管理</div><div class="screen-desc">複数URL発行・SNS別成果比較・永久20%</div></div>
+                </a>
+                <a href="{{ route('influencer.profile') }}" class="screen-link">
+                    <span class="screen-id inf">I-04</span>
+                    <div><div class="screen-name">プロフィール編集</div><div class="screen-desc">表示名・SNSリンク・得意タグ・カバー画像</div></div>
+                </a>
+                <a href="{{ route('influencer.payout_settings') }}" class="screen-link">
+                    <span class="screen-id inf">I-05</span>
+                    <div><div class="screen-name">振込先設定</div><div class="screen-desc">口座情報・振込履歴・注意事項</div></div>
                 </a>
             </div>
         </div>
 
         <div style="text-align:center;margin-top:40px;padding:20px;color:#888;font-size:13px;">
             <p>SALLY141 Learning 紙芝居プロトタイプ</p>
-            <p>全 {{ 23 + 8 + 12 }} 画面 | Laravel {{ app()->version() }}</p>
+            <p>全 {{ 27 + 10 + 14 + 5 }} 画面 | Laravel {{ app()->version() }}</p>
         </div>
     </div>
 </body>
